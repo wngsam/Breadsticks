@@ -10,27 +10,24 @@ namespace Breadsticks.Controllers
 {
     public class HomeController : Controller
     {
+        //TESTING DATA
+        private static User user = new User(
+            new List<Account>()
+            {
+                new Cash(initBalance: 401.00m),
+                new CreditCard("Chase Freedom Unlimited", -2586.99m),
+                new CreditCard("Chase Sapphire Reserve", -109.52m),
+                new Bank("Ally", 8032.59m),
+                new Bank("Charles Schwab", 17.88m),
+                new Bank("Chase", 2937.87m)
+            }
+        );
+        
+
         public IActionResult Index()
         {
-            return View();
-        }
+            ViewData["User"] = user;
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
             return View();
         }
 

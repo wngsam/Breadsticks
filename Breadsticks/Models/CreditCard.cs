@@ -7,31 +7,34 @@ namespace Breadsticks.Models
 {
     public class CreditCard : Account
     {
-        private string name;
-        private string nickname;
         private DateTime dueDate;
 
-        public CreditCard(string cardName)
+        public CreditCard(string cardName, string nickname = "")
         {
             SetName(cardName);
+            SetNickName(nickname);
             SetBalance(0.0m);
+            SetTypeAsDebt();
         }
 
-        public CreditCard(string cardName, decimal initBalance)
+        public CreditCard(string cardName, decimal initBalance, string nickname = "")
         {
             SetName(cardName);
+            SetNickName(nickname);
             SetBalance(initBalance);
+            SetTypeAsDebt();
         }
 
-        public string SetName(string newName)
+        public DateTime GetDueDate()
         {
-            name = newName;
-            return name;
+            return dueDate;
         }
 
-        public string GetName()
+        public DateTime SetDueDate(DateTime newDueDate)
         {
-            return name;
+            dueDate = newDueDate;
+            return dueDate;
         }
+
     }
 }
